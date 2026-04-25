@@ -89,6 +89,7 @@ const SearchPage = () => {
                 />
 
                 <div className="flex-1">
+                  {/* 상단 정보 */}
                   <div className="flex justify-between">
                     <div>
                       <h2 className="text-xl font-bold">{spot.name}</h2>
@@ -97,17 +98,9 @@ const SearchPage = () => {
                         {spot.location}
                       </p>
                     </div>
-
-                    <button
-                      type="button"
-                      className={`flex h-9 w-9 items-center justify-center rounded-full ${
-                        selected ? "bg-[#70B5E0] text-white" : "bg-gray-100"
-                      }`}
-                    >
-                      <Plus className="h-5 w-5" />
-                    </button>
                   </div>
 
+                  {/* 카테고리 + 평점 */}
                   <div className="mt-3 flex items-center gap-4 text-sm">
                     <span className="rounded-full bg-gray-100 px-3 py-1">{spot.category}</span>
                     <span className="flex items-center gap-1">
@@ -116,12 +109,38 @@ const SearchPage = () => {
                     </span>
                   </div>
 
+                  {/* 거리 정보 */}
                   <div className="mt-3 flex gap-4 text-xs text-gray-500">
                     <span className="flex items-center gap-1">
                       <Shield className="h-3 w-3" />
                       경찰서 {spot.policeDistance}km
                     </span>
                     <span>＋ 병원 {spot.hospitalDistance}km</span>
+                  </div>
+
+                  {/* 🔥 추가된 버튼 영역 */}
+                  <div className="mt-4 flex gap-2">
+                    <button
+                      type="button"
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        handleToggleSpot(spot.id);
+                      }}
+                      className={`flex flex-1 items-center justify-center gap-1 rounded-xl py-2 text-sm font-bold ${
+                        selected ? "bg-[#70B5E0] text-white" : "bg-gray-100"
+                      }`}
+                    >
+                      <Plus className="h-4 w-4" />
+                      일정 추가
+                    </button>
+
+                    <Link
+                      to={`/tourist/${spot.id}`}
+                      onClick={(event) => event.stopPropagation()}
+                      className="flex flex-1 items-center justify-center rounded-xl border border-gray-200 py-2 text-sm font-bold"
+                    >
+                      장소 상세 보기
+                    </Link>
                   </div>
                 </div>
               </article>

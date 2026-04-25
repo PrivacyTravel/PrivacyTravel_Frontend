@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import AppLayout from "@/components/layout/AppLayout";
 import HomePage from "@/pages/HomePage";
 import SearchPage from "@/pages/SearchPage";
+import TouristDetailPage from "@/pages/TouristDetailPage";
 import TripPlannerPage from "@/pages/TripPlannerPage";
 import TripResultPage from "@/pages/TripResultPage";
 import BoardListPage from "@/pages/BoardListPage";
@@ -19,6 +20,7 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage /> },
       { path: "search", element: <SearchPage /> },
+      { path: "tourist/:spotId", element: <TouristDetailPage /> },
       { path: "planner", element: <TripPlannerPage /> },
       { path: "trip/:tripId", element: <TripResultPage /> },
       { path: "board", element: <BoardListPage /> },
