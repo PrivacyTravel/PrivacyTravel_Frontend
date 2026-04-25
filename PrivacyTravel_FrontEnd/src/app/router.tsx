@@ -2,11 +2,15 @@ import { createBrowserRouter } from "react-router-dom";
 
 import AppLayout from "@/components/layout/AppLayout";
 import HomePage from "@/pages/HomePage";
-import LoginPage from "@/pages/LoginPage";
-import TravelFeedPage from "@/pages/TravelFeedPage";
-import TravelDetailPage from "@/pages/TravelDetailPage";
-import ProfilePage from "@/pages/ProfilePage";
-import PrivacySettingsPage from "@/pages/PrivacySettingsPage";
+import SearchPage from "@/pages/SearchPage";
+import TripPlannerPage from "@/pages/TripPlannerPage";
+import TripResultPage from "@/pages/TripResultPage";
+import BoardListPage from "@/pages/BoardListPage";
+import BoardDetailPage from "@/pages/BoardDetailPage";
+import BoardCreatePage from "@/pages/BoardCreatePage";
+import SafetyDashboardPage from "@/pages/SafetyDashboardPage";
+import MyPage from "@/pages/MyPage";
+import NotFoundPage from "@/pages/NotFoundPage";
 
 export const router = createBrowserRouter([
   {
@@ -14,11 +18,15 @@ export const router = createBrowserRouter([
     element: <AppLayout />,
     children: [
       { index: true, element: <HomePage /> },
-      { path: "login", element: <LoginPage /> },
-      { path: "feed", element: <TravelFeedPage /> },
-      { path: "travel/:travelId", element: <TravelDetailPage /> },
-      { path: "profile", element: <ProfilePage /> },
-      { path: "settings/privacy", element: <PrivacySettingsPage /> },
+      { path: "search", element: <SearchPage /> },
+      { path: "planner", element: <TripPlannerPage /> },
+      { path: "trip/:tripId", element: <TripResultPage /> },
+      { path: "board", element: <BoardListPage /> },
+      { path: "board/create", element: <BoardCreatePage /> },
+      { path: "board/:postId", element: <BoardDetailPage /> },
+      { path: "safety", element: <SafetyDashboardPage /> },
+      { path: "mypage", element: <MyPage /> },
+      { path: "*", element: <NotFoundPage /> },
     ],
   },
 ]);
