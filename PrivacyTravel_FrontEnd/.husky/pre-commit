@@ -1,0 +1,1 @@
+pnpm exec husky add .husky/commit-msg "pnpm exec commitlint --edit $1"
